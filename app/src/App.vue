@@ -1,28 +1,115 @@
 <template>
-  <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <div> 
+    <b-container fluid class="my-3">
+      <b-row>
+        <b-col>
+          <b-form-group
+              class="mb-3"
+              label-cols="2"
+              content-cols="10"
+              label="Suchen:"
+              label-for="input-search"
+          >
+            <b-row>
+              <b-col cols="10">
+                <b-form-input v-model="searchInput" id="input-search"></b-form-input>
+              </b-col>
+              <b-col>
+                <b-button @click="search()" block>Suchen</b-button>
+              </b-col>
+            </b-row>
+          </b-form-group>
+        </b-col>
+      </b-row>
+
+      <!-- RFID -->
+      <b-form-group
+          class="mb-3"
+          label-cols="2"
+          content-cols="10"
+          label="RFID:"
+          label-for="input-rfid"
+      >
+        <div>
+          {{ foundEmployee?.rfid }}
+        </div>
+      </b-form-group>
+
+      <!-- KEY -->
+      <b-form-group
+          class="mb-3"
+          label-cols="2"
+          content-cols="10"
+          label="KEY:"
+          label-for="input-key"
+      >
+        <div>
+          {{ foundEmployee?.key }}
+        </div>
+      </b-form-group>
+
+      <!-- EMPLOYEE -->
+      <b-form-group
+          class="mb-3"
+          label-cols="2"
+          content-cols="10"
+          label="Employee:"
+          label-for="input-employee"
+      >
+        <b-row>
+          <b-col cols="10">
+            <div>
+              {{ foundEmployee?.employee }}
+            </div>
+          </b-col>
+          <b-col>
+            <b-btn block>Bearbeiten</b-btn>
+          </b-col>
+        </b-row>
+      </b-form-group>
+
+
+      <div class="d-flex justify-content-between">
+        <div>
+          <b-form-file v-model="file" class="mt-3" plain></b-form-file>
+        </div>
+
+        <div>
+          <b-button class="mr-2" @click="modals.create = true">
+            Create
+          </b-button>
+          
+          <b-button class="mr-2">
+            Delete
+          </b-button>
+          <b-button @click="editCSV">
+            Save
+          </b-button>
+        </div>
+      </div>
+
+    </b-container>
+
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
-
-export default {
-  name: 'App',
-  components: {
-    HelloWorld
+  export default {
+    name: 'App',
+    components: {
+      CreateUser
+    },
+    data: () => ({
+      modals: {
+        create: false
+      }
+    }),
+    methods: {
+    },
+    computed: {}
   }
-}
 </script>
 
 <style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
+  #app {}
 </style>
