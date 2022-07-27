@@ -88,14 +88,31 @@
         </div>
       </div>
 
+      <div>
+        <h1>Data:</h1>
+
+        {{ csv }}
+      </div>
     </b-container>
 
+    <b-modal
+      v-model="modals.create"
+      centered
+      hide-footer
+			title="Create new user"
+		>
+      <CreateUser :csv="csv" />
+    </b-modal>
   </div>
 </template>
 
 <script>
+  import PapaParse from "@/components/PapaParse";
+  import CreateUser  from "@/components/CreateUser";
+  import Search from "@/components/Search";
   export default {
     name: 'App',
+    mixins: [PapaParse, Search],
     components: {
       CreateUser
     },
