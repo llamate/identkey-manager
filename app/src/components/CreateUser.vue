@@ -48,10 +48,10 @@
 </template>
 
 <script>
-import PapaParse from "@/components/PapaParse";
+import ParseCSV from "@/components/ParseCSV";
 
 export default {
-	mixins: [PapaParse],
+	mixins: [ParseCSV],
 	data: () => ({
 		employee: {
 			rfid: '',

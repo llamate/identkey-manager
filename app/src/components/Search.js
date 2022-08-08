@@ -1,7 +1,7 @@
-import PapaParse from "./PapaParse"
+import ParseCSV from "./ParseCSV"
 
 const Search = {
-  mixins: [PapaParse],
+  mixins: [ParseCSV],
   data: () => ({
     searchInput: null,
     foundEmployee: null

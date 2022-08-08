@@ -71,7 +71,7 @@
 
       <div class="d-flex justify-content-between">
         <div>
-          <b-form-file v-model="file" class="mt-3" plain></b-form-file>
+          <b-form-file v-model="file" accept=".csv" class="mt-3" plain></b-form-file>
         </div>
 
         <div>
@@ -82,16 +82,10 @@
           <b-button class="mr-2">
             Delete
           </b-button>
-          <b-button @click="editCSV">
+          <b-button>
             Save
           </b-button>
         </div>
-      </div>
-
-      <div>
-        <h1>Data:</h1>
-
-        {{ csv }}
       </div>
     </b-container>
 
@@ -107,12 +101,12 @@
 </template>
 
 <script>
-  import PapaParse from "@/components/PapaParse";
+  import ParseCSV from "@/components/ParseCSV";
   import CreateUser  from "@/components/CreateUser";
   import Search from "@/components/Search";
   export default {
     name: 'App',
-    mixins: [PapaParse, Search],
+    mixins: [ParseCSV, Search],
     components: {
       CreateUser
     },

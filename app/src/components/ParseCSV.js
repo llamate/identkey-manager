@@ -1,6 +1,6 @@
 import Papa from 'papaparse'
 
-const PapaParse = {
+const ParseCSV = {
   data: () => ({
     csv: [],
     file: null
@@ -11,6 +11,7 @@ const PapaParse = {
       const _this = this
       Papa.parse(this.file, {
         header: true,
+        encoding: "utf-8",
         complete: function(results) {
           _this.csv = results?.data
         }
@@ -21,6 +22,8 @@ const PapaParse = {
     file: {
       handler (file) {
         if (!file) return
+        console.log(this.csv)
+        console.log(this.file)
         this.readCSV()
       },
       immediate: true
@@ -29,4 +32,4 @@ const PapaParse = {
   created() {}
 }
 
-export default PapaParse
+export default ParseCSV
