@@ -3,33 +3,43 @@ import Papa from 'papaparse'
 const ParseCSV = {
   data: () => ({
     csv: [],
-    file: null
+    file: null,
+    errmessage: ""
   }),
-  computed: {},
   methods: {
     readCSV () {
       const _this = this
-      Papa.parse(this.file, {
+      Papa.parse(_this.file, {
         header: true,
         encoding: "utf-8",
         complete: function(results) {
           _this.csv = results?.data
         }
       });
+    },
+    resetApp() {
+      const _this = this
+      _this.errmessage = ""
+    },
+    resetError() {
+      const _this = this
+      _this.errmessage = ""
     }
   },
   watch: {
     file: {
       handler (file) {
+        this.resetApp()
         if (!file) return
-        console.log(this.csv)
-        console.log(this.file)
-        this.readCSV()
+        if (file.type === (".csv" && "text/csv")) {
+          this.readCSV()
+        } else {
+          this.errmessage = "Only CSV files are allowed"
+        }
       },
       immediate: true
     },
-  },
-  created() {}
+  }
 }
 
 export default ParseCSV

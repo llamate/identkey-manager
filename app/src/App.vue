@@ -53,7 +53,7 @@
           class="mb-3"
           label-cols="2"
           content-cols="10"
-          label="Employee:"
+          label="EMPLOYEE:"
           label-for="input-employee"
       >
         <b-row>
@@ -67,11 +67,22 @@
           </b-col>
         </b-row>
       </b-form-group>
-
+      <!-- ERROR MESSAGE -->
+      <b-form-group
+          class="mb-3"
+          label-cols="2"
+          content-cols="10"
+          label="ERROR:"
+          label-for="error-message"
+      >
+        <div>
+          {{ errmessage }}
+        </div>
+      </b-form-group>
 
       <div class="d-flex justify-content-between">
         <div>
-          <b-form-file v-model="file" accept=".csv" class="mt-3" plain></b-form-file>
+          <b-form-file v-model="file" accept=".csv, text/csv" class="mt-3" plain></b-form-file>
         </div>
 
         <div>
@@ -114,13 +125,10 @@
       modals: {
         create: false
       }
-    }),
-    methods: {
-    },
-    computed: {}
+    })
   }
 </script>
 
 <style>
-  #app {}
+  #app { }
 </style>

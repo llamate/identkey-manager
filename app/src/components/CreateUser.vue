@@ -59,14 +59,8 @@ export default {
 			employee: ''
 		}
 	}),
-	computed: {
-		test1 () {
-			return this.csv
-		}
-	},
 	methods: {
-		saveCreatedUser() {
-		}
+		saveCreatedUser() {}
 	}
 }
 </script>

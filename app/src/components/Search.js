@@ -6,9 +6,6 @@ const Search = {
     searchInput: null,
     foundEmployee: null
   }),
-
-  computed: {},
-
   methods: {
     search() {
       if(!this.searchInput) return
