@@ -8,7 +8,10 @@ const User = (user) => {
 }
 
 /*
- *  CRUD
+ *  C | reate
+ *  R | eplace
+ *  U | pdate
+ *  D | elete
  */
 
 User.fetchAll = (request, result) => {
