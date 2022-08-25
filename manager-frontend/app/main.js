@@ -1,4 +1,4 @@
-const { app, BrowserWindow } = require('electron');
+const { app, BrowserWindow, Menu } = require('electron');
 
 const url = require("url");
 const path = require("path");
@@ -24,9 +24,26 @@ function createWindow() {
   mainWindow.on('closed', function () {
     mainWindow = null
   })
+
+  mainWindow.webContents.openDevTools()
 }
 
-app.on('ready', createWindow)
+app.on('ready', function () {
+  createWindow()
+
+  const template = [
+    {
+      label: 'Select Data',
+      submenu: [
+        { label: 'CSV' },
+        { label: 'Database' }
+      ]
+    }
+  ]
+  
+  const menu = Menu.buildFromTemplate(template)
+  Menu.setApplicationMenu(menu)
+})
 
 app.on('window-all-closed', function () {
   if (process.platform !== 'darwin') app.quit()
