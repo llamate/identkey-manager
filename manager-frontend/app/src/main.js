@@ -11,7 +11,6 @@ Vue.use(BootstrapVue)
 Vue.config.productionTip = false
 
 new Vue({
-  el: '#app',
   store,
   render: h => h(App),
 }).$mount('#app')

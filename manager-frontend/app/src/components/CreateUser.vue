@@ -20,7 +20,7 @@
 					class="mb-3"
 					label-cols="2"
 					content-cols="10"
-					label="Key:"
+					label="KEY:"
 					label-for="modal-key"
 			>
 				<b-form-input
@@ -34,7 +34,7 @@
 					class="mb-3"
 					label-cols="2"
 					content-cols="10"
-					label="Employee:"
+					label="EMPLOYEE:"
 					label-for="modal-employee"
 			>
 				<b-form-input
@@ -43,7 +43,7 @@
 				/>
 			</b-form-group>
 
-			<b-button @click="saveCreatedUser()">Save</b-button>
+			<b-button @click="saveCreatedUser()" class="float-right">Save</b-button>
 	</div>
 
 </template>

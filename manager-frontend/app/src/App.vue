@@ -1,5 +1,5 @@
 <template>
-  <div> 
+  <div>
     <b-container fluid class="my-3">
       <b-row>
         <b-col>
@@ -7,7 +7,7 @@
               class="mb-3"
               label-cols="2"
               content-cols="10"
-              label="Suchen:"
+              label="SEARCH:"
               label-for="input-search"
           >
             <b-row>
@@ -15,7 +15,7 @@
                 <b-form-input v-model="searchInput" id="input-search"></b-form-input>
               </b-col>
               <b-col>
-                <b-button @click="search()" block>Suchen</b-button>
+                <b-button @click="search()" block>Search</b-button>
               </b-col>
             </b-row>
           </b-form-group>
@@ -63,10 +63,11 @@
             </div>
           </b-col>
           <b-col>
-            <b-btn block>Bearbeiten</b-btn>
+            <b-btn block>Edit</b-btn>
           </b-col>
         </b-row>
       </b-form-group>
+
       <!-- ERROR MESSAGE -->
       <b-form-group
           class="mb-3"
@@ -86,16 +87,16 @@
         </div>
 
         <div>
-          <b-button class="mr-2" @click="modals.create = true">
+          <b-btn class="mr-2" @click="modals.create = true">
             Create
-          </b-button>
+          </b-btn>
           
-          <b-button class="mr-2">
+          <b-btn class="mr-2">
             Delete
-          </b-button>
-          <b-button>
+          </b-btn>
+          <b-btn>
             Save
-          </b-button>
+          </b-btn>
         </div>
       </div>
     </b-container>
@@ -115,6 +116,7 @@
   import ParseCSV from "@/components/ParseCSV";
   import CreateUser  from "@/components/CreateUser";
   import Search from "@/components/Search";
+
   export default {
     name: 'App',
     mixins: [ParseCSV, Search],
@@ -130,7 +132,4 @@
 </script>
 
 <style>
-  #app { 
-    background-color: yellow;
-  }
 </style>
